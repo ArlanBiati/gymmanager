@@ -1,3 +1,5 @@
+/* ===================== GLOBAL ===================== */
+
 :root {
     font-size: 62%;
 }
@@ -27,52 +29,239 @@ a {
     text-decoration: none;
 }
 
+/* ===================== HEADER ===================== */
+
 header {
     width: 100vw;
     height: 8rem;
 
     /* background-color: rgba(255, 255, 0, 0.733); */
     background-color: rgba(58, 56, 56, 0.582);
+    
+    display: flex;
+}
+
+.container {
+    margin: 0 auto;
+
+    width: 80vw;
+    max-width: 1100px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
 
-    
+header img {
+    width: 50px;
+
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
 }
 
 header .nav {
     font-size: 2rem;
     font-weight: 400;
 
-    /* position: relative; */
 }
 
 header .nav a {
-    color: rgb(255, 255, 0);
-    /* color: black; */
+    /* color: rgb(255, 255, 0); */
+    color: rgb(179, 179, 179);
 
-    padding: 1rem;
+    position: relative;
 }
-
-
-/* header .nav a:hover::after {
-    content: "";
-    position: absolute;
-
-    height: 2px;
-    width: 22vw;
-
-    bottom: 0;
-    left: 0;
-
-    background-color: black;
-} */
 
 header .nav a + a {
     margin-left: 2rem;
 }
 
-.active {
+header .nav a.active {
     font-weight: bold;
+
+    color: rgb(255, 255, 0);
+}
+
+header .nav a:hover {
+    color: rgb(255, 255, 0);
+    
+}
+
+header .nav a::after {
+    content: "";
+    position: absolute;
+
+    height: 2px;
+    width: 0%;
+
+    
+    left: 0;
+    bottom: -2px;
+
+    background-color: rgb(255, 255, 0);
+
+    transition: width 300ms ease-in-out;
+}
+
+header .nav a:hover::after {
+    width: 100%;
+}
+
+/* ===================== CARD ===================== */
+
+div.card {
+    width: 80vw;
+    height: 80vh;
+
+    max-width: 1100px;
+
+    margin: 5rem auto 0;
+
+
+    background-color: rgba(255, 255, 255, 0.9);
+
+    animation: up 300ms;
+    
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+div.card section.avatar {
+    background-image: url(https://images.unsplash.com/photo-1578762560042-46ad127c95ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border: 5px solid yellow;
+
+    width: 30vw;
+    height: 80vh;
+
+    max-width: 500px;
+    
+    /* border-radius: 50%; */
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+div.card section.details {
+    padding: 5rem;
+    
+    position: relative;
+
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+
+div.card section.details h1 {
+    font-size: 3.6rem;
+    font-weight: normal;
+
+}
+
+div.card section.details h1::after {
+    content: "";
+
+    position: absolute;
+
+    height: 1.5px;
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+
+    background-color: black;
+
+    top: 10rem;
+    left: 10%;
+
+    animation: width 1s;
+
+}
+
+@keyframes width {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+div.card section.details h1::before {
+    content: "";
+
+    position: absolute;
+
+    height: 6%;
+    width: 2px;
+
+    background-color: black;
+
+    top: 5rem;
+    left: 4rem;
+
+    animation: height 1s;
+
+}
+
+@keyframes height {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+div.card section.details div.informations {
+
+    align-self: flex-start;
+
+}
+
+div.card section.details div.information {
+    padding: 1rem;
+
+    border-bottom: 1px solid rgba(58, 56, 56, 0.170);
+}
+
+div.card section.details div.information:last-child {
+    border: none;
+}
+
+div.card section.details div.information div:first-child {
+    font-size: 2.1rem;
+    font-weight: 700;
+
+    margin-bottom: 0.5rem;
+}
+
+div.card section.details div.information div > span {
+    background-color: rgb(255, 255, 0);
+
+    padding: 1rem;
+
+    border-radius: 1.5rem;
+}
+
+div.card section.details div.information div + div{
+    font-size: 1.6rem;
+
+    padding-left: 1.0rem;
+
+    margin: 10px 0;
 }

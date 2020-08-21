@@ -1,4 +1,4 @@
-INICIANDO O BACK END
+INICIANDO O BACK END : [
 
     Para configurarmos um servidor básico, precisamos setar nosso server, nossas rotas e qual a porta o servidor ira rodar.
 
@@ -54,9 +54,46 @@ INICIANDO O BACK END
         server.use(express.static(public))
 
     }
+]
 
 
 
 *** Como o JS é uma linguagem assíncrona, o código não é lido da maneira em que foi escrito. Por isso existem as Callbacks Functions, que nada mais é funções que seram executadas após um certo evento. 
     Exemplo: Ao rodar uma API que trara dados externos para dentro da aplicação, se não houvesse callback functions, o js continuaria lendo o código sem ao menos esperar essas dados serem recebidos e isso ocasionaria vários erros !
+
+
+
+CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
+
+    PARA QUE SERVER ESSAS DEPENDENCIAS : {
+        Essas dependencias foram instaladas no modo desenvolvimento. Elas servem para manter o back e o front end rodando em harmonia e observando sempre que houver uma mudança em ambos.
+
+        Com essas dependencias não temos a necessidade de ficar dando reload no server e no navegador para que as alterações sejam mostradas.
+
+    },
+
+    CONFIGURANDO DEPENDENCIAS : {
+        Acesse o arquivo > package.json > scripts
+
+        Dentro dos "scripts", adicione as seguintes linhas de comando nesta ordem.
+
+            "scripts": {
+                "start": "npm-run-all -p nodemon browsersync",
+                "nodemon": "nodemon server.js",
+                "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
+            }
+
+        1 -> Esta linha é o comando que faz nosso servidor e o front rodarem juntos (nodemon - atualiza o servidor | browsersync - atualiza o navegador)
+
+        2 -> Estamos configurando o nodemon para sempre dar reload no nosso servidor quando houver alterações
+
+        3 -> Estamos configurando o browser-sync para reconhecer qualquer alteração que acontecer nas pastas "public" | "views" e jogar no nosso localhost:5000 onde estamos rodando nosso servidor
+         
+    }
+
+    
+]
+
+    
+
 

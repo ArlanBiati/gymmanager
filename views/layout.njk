@@ -12,12 +12,18 @@
     <div class="all">
 
         <header>
-            <div class="nav">
-                <a href="/instructors" class="active">Instrutores</a>
-                <a href="/members">Membros</a>
+            <div class="container">
+
+                <img src="/image/academia.png" alt="">
+                <div class="nav">
+                    <a href="/instructors" class="active">Instrutores</a>
+                    <a href="/members">Membros</a>
+                </div>
             </div>
         </header>
 
+        {% block content %}
+        {% endblock content %}
     </div>
     
 </body>
