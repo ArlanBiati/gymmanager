@@ -1,0 +1,62 @@
+INICIANDO O BACK END
+
+    Para configurarmos um servidor básico, precisamos setar nosso server, nossas rotas e qual a porta o servidor ira rodar.
+
+
+    //--- Setamos o express como nosso server.
+
+    const server = express()
+
+
+    As rotas são escritas da seguite forma {
+
+    
+        //--- Está configuração nos tras uma rota do tipo GET, sendo a raiz do projeto (identificado com a /) e que nos apresentara uma página com o nome de INDEX.
+        
+        server.get('/', function(req, res){
+            return res.render('index')
+        })
+
+
+
+        //--- Dentro de um servidor, o nosso request (req) é todo o conteúdo que o cliente busca e o response (res) é todo o conteúdo que o servidor envia.
+
+    }
+
+
+    //--- Esta configuração seta em qual porta o servidor ira rodar. Veja que passamos dois parametros, o primeiro é o n° da porta e o segunda é uma função de callback***.
+
+    server.listen(5000, function() {
+        console.log('Server is running!')
+    })
+
+
+    
+    Configurando o Nunjucks - Template Engine {
+
+    
+        //--- Estamos setando para o nosso server o que o nunjucks deve identificar como template engine, que nesse caso são os arquivos  .NJK (nunjucks).
+
+        server.set(view engine, njk)
+
+
+
+        //--- Essa parte configura o nunjucks e pede dois parametros. O primeiro é o caminho (pasta de destino dos arquivos) e o segundo qual é o server, que nesse caso estamos usando o express.
+
+        nunjucks.configure(views, {
+            express: server           
+        })
+
+
+
+        //--- O express ira observar a pasta public que é onde se encontra nossos arquivos estaticos (JS, Imagens, CSS)
+
+        server.use(express.static(public))
+
+    }
+
+
+
+*** Como o JS é uma linguagem assíncrona, o código não é lido da maneira em que foi escrito. Por isso existem as Callbacks Functions, que nada mais é funções que seram executadas após um certo evento. 
+    Exemplo: Ao rodar uma API que trara dados externos para dentro da aplicação, se não houvesse callback functions, o js continuaria lendo o código sem ao menos esperar essas dados serem recebidos e isso ocasionaria vários erros !
+

@@ -1,0 +1,78 @@
+:root {
+    font-size: 62%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80);
+    background-position: center;
+}
+
+.all {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    width: 100vw;
+    height: 8rem;
+
+    /* background-color: rgba(255, 255, 0, 0.733); */
+    background-color: rgba(58, 56, 56, 0.582);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+header .nav {
+    font-size: 2rem;
+    font-weight: 400;
+
+    /* position: relative; */
+}
+
+header .nav a {
+    color: rgb(255, 255, 0);
+    /* color: black; */
+
+    padding: 1rem;
+}
+
+
+/* header .nav a:hover::after {
+    content: "";
+    position: absolute;
+
+    height: 2px;
+    width: 22vw;
+
+    bottom: 0;
+    left: 0;
+
+    background-color: black;
+} */
+
+header .nav a + a {
+    margin-left: 2rem;
+}
+
+.active {
+    font-weight: bold;
+}
