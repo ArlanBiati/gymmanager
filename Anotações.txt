@@ -54,12 +54,16 @@ INICIANDO O BACK END : [
         server.use(express.static(public))
 
     }
-]
 
+    Utilizamos essa linha de código, para que o nosso server leia o body da requisição {
 
+        server.use(express.urlencoded({ extended: true }))
+
+    }
 
 *** Como o JS é uma linguagem assíncrona, o código não é lido da maneira em que foi escrito. Por isso existem as Callbacks Functions, que nada mais é funções que seram executadas após um certo evento. 
     Exemplo: Ao rodar uma API que trara dados externos para dentro da aplicação, se não houvesse callback functions, o js continuaria lendo o código sem ao menos esperar essas dados serem recebidos e isso ocasionaria vários erros !
+]
 
 
 
@@ -89,9 +93,7 @@ CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
 
         3 -> Estamos configurando o browser-sync para reconhecer qualquer alteração que acontecer nas pastas "public" | "views" e jogar no nosso localhost:5000 onde estamos rodando nosso servidor
          
-    }
-
-    
+    } 
 ]
 
     
