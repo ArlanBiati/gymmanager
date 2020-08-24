@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/ArlanBiati/gynmanager/issues"
   },
-  "homepage": "https://github.com/ArlanBiati/gynmanager#readme"
+  "homepage": "https://github.com/ArlanBiati/gynmanager#readme",
+  "nodemonConfig": {
+    "ignore": ["data.json"]
+  }
 }

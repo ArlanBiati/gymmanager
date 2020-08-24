@@ -13,8 +13,17 @@ exports.post = function(req, res) {
         }
     }
 
+    // pegamos o valor da chave birth e transformamos ela em milisegundos
+    req.body.birth = Date.parse(req.body.birth)
+
+    // cria uma chave createdAt que recebe a data do momento atual
+    req.body.createdAt = Date.now()
+
+    // o metodo push coloca todos os dados que veem no body dentro do array instructors 
     data.instructors.push(req.body)
 
+
+    // configurando o file system para escrever as modificações dentro de um arquivo data.json
     fs.writeFile("data.json", JSON.stringify(data, null ,2), function(err) {
         if(err) {
             return res.send("Write file error")

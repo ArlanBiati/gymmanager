@@ -34,6 +34,14 @@
       "birth": "1995-03-14",
       "gender": "M",
       "services": "CrossFit, Funcional, Musculação"
+    },
+    {
+      "avatar_url": "http://github.com/maykbrito.png",
+      "name": "Mayk Brito",
+      "birth": 638928000000,
+      "gender": "M",
+      "services": "CrossFit, Funcional, Musculação",
+      "createdAt": 1598283248109
     }
   ]
 }

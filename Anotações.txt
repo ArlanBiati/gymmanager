@@ -69,7 +69,7 @@ INICIANDO O BACK END : [
 
 CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
 
-    PARA QUE SERVER ESSAS DEPENDENCIAS : {
+    PARA QUE SERVE ESSAS DEPENDENCIAS : {
         Essas dependencias foram instaladas no modo desenvolvimento. Elas servem para manter o back e o front end rodando em harmonia e observando sempre que houver uma mudança em ambos.
 
         Com essas dependencias não temos a necessidade de ficar dando reload no server e no navegador para que as alterações sejam mostradas.
@@ -82,9 +82,9 @@ CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
         Dentro dos "scripts", adicione as seguintes linhas de comando nesta ordem.
 
             "scripts": {
-                "start": "npm-run-all -p nodemon browsersync",
-                "nodemon": "nodemon server.js",
-                "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
+        1 ->    "start": "npm-run-all -p nodemon browsersync",
+        2 ->    "nodemon": "nodemon server.js",
+        3 ->    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public, views'"
             }
 
         1 -> Esta linha é o comando que faz nosso servidor e o front rodarem juntos (nodemon - atualiza o servidor | browsersync - atualiza o navegador)
@@ -96,6 +96,36 @@ CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
     } 
 ]
 
-    
+
+
+CONFIGURANDO FILE SYSTEM [
+
+    PARA QUE SERVE O FILE SYSTEM: {
+        O file system é um modo de armazenamento de arquivos que consiste em armazenar os dados em um arquivo local, ou seja, dentro da sua máquina.
+
+        Para mais informações, achei esse blog que explica muito bem o que é e como funciona: https://helpdevs.net/2020/03/12/node-js-usando-o-modulo-fs-file-system/ 
+
+    },
+
+    CONFIGURANDO FS PARA GRAVAR ARQUIVOS {
+        
+        // Estamos configurando o fs para escrever arquivos(.writeFile). Este metódo recebe alguns parametros. {
+            1 -> local onde vamos escrever o arquivo ("data.json")
+            2 -> formato em que o arquivo vai ser escrito (JSON.stringfy(
+                1 -> modelo de dados que sera salvo
+                2 -> null
+                3 -> tipo de identação utilizada no arquivo
+            ))
+            3 -> função de callbeck 
+        }
+
+        fs.writeFile("data.json", JSON.stringify(data, null ,2), function(err) {
+            if(err) {
+                return res.send("Write file error")
+            }
+            return res.redirect("/instructors")
+        })
+    }   
+]    
 
 
