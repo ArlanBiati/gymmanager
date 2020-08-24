@@ -1,0 +1,86 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<link rel="stylesheet" href="/cssInstructors/createInstructors.css">
+<title>Novo Instrutor - Gyn Manager</title>
+{% endblock head %}
+
+{% block content %}
+
+<form class="card" method="POST" action="/instructors">
+    <section class="avatar">
+
+    </section>
+    <section class="details">
+        <h1>Novo Instrutor</h1>
+
+        <div class="informations">
+
+            <div class="information">
+                <div>Avatar URL</div>
+                <input 
+                    type="url" 
+                    name="avatar_url"
+                    placeholder="http://"
+                    required
+                >
+            </div>
+
+            <div class="information">
+                <div>Instrutor</div>
+                <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Nome do instrutor"
+                    required
+                >
+            </div>
+
+            <div class="information">
+                <div>Data de nascimento</div>
+                <input 
+                    type="date" 
+                    name="birth"
+                    required
+                >
+            </div>
+
+            <div class="information">
+                <div>Sexo</div>
+                <span>
+                    <input 
+                        type="radio" 
+                        name="gender" value="M"
+                        required
+                    >
+                    Masculino
+                </span>
+                <span>
+                    <input 
+                        type="radio" 
+                        name="gender" 
+                        value="M"
+                        required
+                    >
+                    Feminino
+                </span>
+            </div>
+
+            <div class="information">
+                <div>Área de atuação</div>
+                <div>
+                    <input 
+                        type="text" 
+                        name="services"
+                        placeholder="Separe os serviçoes por vírgula (max 6 serviços)"
+                        required
+                    >
+                </div>
+            </div>
+
+            <button type="submit">Salvar</button>
+        </div>
+    </section>
+</form>
+
+{% endblock content %}
