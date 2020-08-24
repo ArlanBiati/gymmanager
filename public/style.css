@@ -155,12 +155,12 @@ div.card section.avatar {
 }
 
 div.card section.details {
-    padding: 5rem;
+    padding: 4rem 5rem;
     
     position: relative;
 
     display: grid;
-    grid-template-rows: 1fr 6fr;
+    grid-template-rows: 1fr 10fr;
 }
 
 div.card section.details h1 {
@@ -181,8 +181,8 @@ div.card section.details h1::after {
 
     background-color: black;
 
-    top: 10rem;
-    left: 10%;
+    top: 9rem;
+    left: 5rem;
 
     animation: width 1s;
 
@@ -209,7 +209,7 @@ div.card section.details h1::before {
 
     background-color: black;
 
-    top: 5rem;
+    top: 4rem;
     left: 4rem;
 
     animation: height 1s;
@@ -244,24 +244,28 @@ div.card section.details div.information:last-child {
 }
 
 div.card section.details div.information div:first-child {
-    font-size: 2.1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    color: rgb(144, 144, 144);
+}
+
+div.card section.details div.information div + div {
+    font-size: 1.6rem;
     font-weight: 700;
 
-    margin-bottom: 0.5rem;
+    padding-left: 1.0rem;
+
+    margin: 1.5rem 0;
 }
 
 div.card section.details div.information div > span {
     background-color: rgb(255, 255, 0);
 
     padding: 1rem;
+    margin-top: 1rem;
 
-    border-radius: 1.5rem;
-}
+    display: inline-block;
 
-div.card section.details div.information div + div{
-    font-size: 1.6rem;
-
-    padding-left: 1.0rem;
-
-    margin: 10px 0;
+    border-radius: 5.5rem 1.5rem;
 }
