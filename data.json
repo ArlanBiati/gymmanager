@@ -1,47 +1,13 @@
 {
   "instructors": [
     {
+      "id": 1,
       "avatar_url": "http://github.com/ArlanBiati.png",
       "name": "Arlan Biati",
-      "birth": "1995-03-14",
-      "gender": "M",
-      "services": "CrossFit, Funcional, Musculação"
-    },
-    {
-      "avatar_url": "http://github.com/maykbrito.png",
-      "name": "Mayk Brito",
-      "birth": "1990-05-14",
-      "gender": "M",
-      "services": "CrossFit, Funcional, Musculação"
-    },
-    {
-      "avatar_url": "http://github.com/ArlanBiati.png",
-      "name": "Arlan Biati",
-      "birth": "1995-03-14",
-      "gender": "M",
-      "services": "CrossFit, Funcional, Musculação"
-    },
-    {
-      "avatar_url": "http://github.com/ArlanBiati.png",
-      "name": "Arlan Biati",
-      "birth": "1995-03-14",
-      "gender": "M",
-      "services": "CrossFit, Funcional, Musculação"
-    },
-    {
-      "avatar_url": "http://github.com/ArlanBiati.png",
-      "name": "Arlan Biati",
-      "birth": "1995-03-14",
-      "gender": "M",
-      "services": "CrossFit, Funcional, Musculação"
-    },
-    {
-      "avatar_url": "http://github.com/maykbrito.png",
-      "name": "Mayk Brito",
-      "birth": 638928000000,
+      "birth": 795139200000,
       "gender": "M",
       "services": "CrossFit, Funcional, Musculação",
-      "createdAt": 1598283248109
+      "created_at": 1598619998153
     }
   ]
 }

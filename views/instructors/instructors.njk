@@ -1,59 +1,52 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-<link rel="stylesheet" href="/cssInstructors/detailInstructors.css">
-<title>Detalhes do Instrutor - Gyn Manager</title>
+    <link rel="stylesheet" href="/cssInstructors/detailInstructors.css">
+    <title>Detalhes do Instrutor - Gyn Manager</title>
 {% endblock head %}
 
 {% block content %}
 
-<div class="card">
-    <section class="avatar">
+    <div class="card">
+        <section class="avatar" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></section>
+        <section class="details">
+            <h1>Detalhes</h1>
 
-    </section>
-    <section class="details">
-        <h1>Detalhes</h1>
+            <div class="informations">
 
-        <div class="informations">
+                <div class="information">
+                    <div>Instrutor</div>
+                    <div>Arlan Biati</div>
+                </div>
 
-            <div class="information">
-                <div>Instrutor</div>
-                <div>Arlan Biati</div>
-            </div>
+                <div class="information">
+                    <div>Idade</div>
+                    <div>25</div>
+                </div>
 
-            <div class="information">
-                <div>Idade</div>
-                <div>25</div>
-            </div>
+                <div class="information">
+                    <div>Sexo</div>
+                    <div>Masculino</div>
+                </div>
 
-            <div class="information">
-                <div>Sexo</div>
-                <div>Masculino</div>
-            </div>
+                <div class="information">
+                    <div>Instrutor</div>
+                    <div>
+                        <span>Musculação</span>
+                        <span>CrossFit</span>
+                        <span>Funcional</span>
+                        <span>Funcional</span>
+                        <span>Funcional</span>
+                        <span>Funcional</span>
+                    </div>
+                </div>
 
-            <div class="information">
-                <div>Acompanhamento</div>
-                <div>Arlan Biati</div>
-            </div>
-
-            <div class="information">
-                <div>Instrutor</div>
-                <div>
-                    <span>Musculação</span>
-                    <span>CrossFit</span>
-                    <span>Funcional</span>
-                    <span>Funcional</span>
-                    <span>Funcional</span>
-                    <span>Funcional</span>
+                <div class="information">
+                    <div>Desde</div>
+                    <div>21/08/2020</div>
                 </div>
             </div>
-
-            <div class="information">
-                <div>Desde</div>
-                <div>21/08/2020</div>
-            </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 
 {% endblock content %}

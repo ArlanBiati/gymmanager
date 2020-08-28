@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.12",
+    "intl": "^1.2.5",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5"
   },
@@ -29,6 +30,8 @@
   },
   "homepage": "https://github.com/ArlanBiati/gynmanager#readme",
   "nodemonConfig": {
-    "ignore": ["data.json"]
+    "ignore": [
+      "data.json"
+    ]
   }
 }

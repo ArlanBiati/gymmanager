@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/cssInstructors/detailInstructors.css">
+  <title>Detalhes do Instrutor - Gyn Manager</title>
+{% endblock head %}
+
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background-image: url({{ instructor.avatar_url }});"></section>
+    <section class="details">
+      <h1>Detalhes</h1>
+
+      <div class="informations">
+
+        <div class="information">
+          <div>Instrutor</div>
+          <div>{{ instructor.name }}</div>
+        </div>
+
+        <div class="information">
+          <div>Idade</div>
+          <div>{{ instructor.age }}</div>
+        </div>
+
+        <div class="information">
+          <div>Sexo</div>
+          <div>{{ "Masculino" if instructor.gender == "M" else "Feminino" }}</div>
+        </div>
+
+        <div class="information">
+          <div>Acompanhamento</div>
+          <div>
+            {% for service in instructor.services %}
+              <span>{{ service }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="information">
+          <div>Desde</div>
+          <div>{{ instructor.created_at }}</div>
+        </div>
+      </div>
+
+      <a href="/instructors/{{ instructor.id }}/edit" class="button">Editar</a>
+    </section>
+  </div>
+
+{% endblock content %}
