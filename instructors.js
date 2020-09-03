@@ -1,7 +1,7 @@
 const fs = require('fs')
 const data = require('./data.json')
 const Intl = require('intl')
-const { age } = require('./utils')
+const { age, date } = require('./utils')
 
 //show
 exports.show = function (req, res) {
@@ -83,4 +83,31 @@ exports.post = function (req, res) {
 
   // retornamos nossos dados do Body no navegador
   // return res.send(req.body)
+}
+
+
+exports.edit = function (req, res) {
+
+  const { id } = req.params
+
+  // foundInstructor esta verificando se no array instructors tem um instrusctor.id igual ao id do params
+  // (vai no array dos intrutores e procura o instrutor com id: 1 e ve se é igual ao id que esta na url)
+  const foundInstructor = data.instructors.find(function (instructor) {
+    return instructor.id == id
+  })
+
+  // se o id for diferent, retorna uma mensagem dizendo que o instrutor nao foi encontrado
+  if (!foundInstructor) {
+    return res.send('Instrutor não encontrada')
+  }
+
+  // dentro do objeto instructor, queremos corrigir alguns dados que vieram incorretos. Por exemplo: age, gender, services, created_at. O RESTO dos dados eu deixo da forma que estão. *** OBS -> os dados inalterados devem ser os primeiros a serem retornados.
+  const instructor = {
+    ...foundInstructor,
+
+    // transformando a data de aniversário de milisegundos para o formato yyyy-mm-dd
+    birth: date(foundInstructor.birth)
+  }
+
+  return res.render("instructors/editInstructors", { instructor })
 }
