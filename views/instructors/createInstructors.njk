@@ -7,12 +7,14 @@
 
 {% block content %}
 
-    <form class="card" method="PUT" action="/instructors">
+    <form class="card" method="POST" action="/instructors">
         <section class="avatar"></section>
         <section class="details">
             <h1>Novo Instrutor</h1>
 
             {% include "instructors/fields.njk" %}
+
+            <button type="submit">Salvar</button>
 
         </section>
     </form>
