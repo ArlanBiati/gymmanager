@@ -7,12 +7,15 @@
 
 {% block content %}
 
-  <form class="card" method="POST" action="/instructors">
+  <form class="card" method="PUT" action="/instructors?_method=PUT">
+    <!--atraves de uma query estamos passando o metodo PUT para o formulário-->
     <section class="avatar"></section>
     <section class="details">
       <h1>Editar Instrutor</h1>
 
       {% include "instructors/fields.njk" %}
+
+      <input type="hidden" name="id" value="{{instructor.id}}">
     </section>
   </form>
 

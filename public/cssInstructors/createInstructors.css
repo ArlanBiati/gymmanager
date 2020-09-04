@@ -204,6 +204,8 @@ button {
 
     width: 100%;
 
+    cursor: pointer;
+
     transition: background-color 400ms ease-in-out;
 }
 

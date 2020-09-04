@@ -3,7 +3,7 @@ const data = require('./data.json')
 const Intl = require('intl')
 const { age, date } = require('./utils')
 
-//show
+
 exports.show = function (req, res) {
   // estamos desestruturando o id de dentro da requisição do tipo params
   const { id } = req.params
@@ -38,7 +38,6 @@ exports.show = function (req, res) {
   })
 }
 
-// create
 exports.post = function (req, res) {
   // criamos um Constructor (Object) que criara um objeto e dentro dele contem todos os dados enviados no body (avatar, nome, nascimento, servicos, sexo)
   const keys = Object.keys(req.body)
@@ -85,7 +84,6 @@ exports.post = function (req, res) {
   // return res.send(req.body)
 }
 
-
 exports.edit = function (req, res) {
 
   const { id } = req.params
@@ -110,4 +108,49 @@ exports.edit = function (req, res) {
   }
 
   return res.render("instructors/editInstructors", { instructor })
+}
+
+exports.put = function (req, res) {
+  // pegando id pelo formulário
+  const { id } = req.body
+
+  // variavel index recebe o valor de 0
+  let index = 0
+
+  // foundInstructor esta verificando se no array instructors tem um instrusctor.id igual ao id do body(formulário)
+  // (vai no array dos intrutores e procura o instrutor com id: 1 e ve se é igual ao id do formulário que está em edição, caso seja, o index recebe a posição do instrutor no array e retorna true)
+  const foundInstructor = data.instructors.find(function (instructor, foundIndex) {
+    if (id == instructor.id) {
+      index = foundIndex
+      return true
+    }
+  })
+
+  // se o id for diferente, retorna uma mensagem dizendo que o instrutor nao foi encontrado
+  if (!foundInstructor) {
+    return res.send('Instrutor não encontrada')
+  }
+
+  const instructor = {
+    // espalha todos os dados que já existem no instrutor
+    ...foundInstructor,
+
+    // espalha todos os dados atualizados que vem do formulário    *** não tem problema esplahar os dois, eles se complementam
+    ...req.body,
+
+    // transforma o id em numero
+    id: Number(id),
+
+    // transforma a data de nascimento em milisegundos
+    birth: Date.parse(req.body.birth)
+  }
+  // dentro do array de instrutores na posição do index, recebe o instrutor
+  data.instructors[index] = instructor
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), function (err) {
+    if (err) {
+      return res.send('Write file error')
+    }
+    return res.redirect(`/instructors/${id}`)
+  })
 }

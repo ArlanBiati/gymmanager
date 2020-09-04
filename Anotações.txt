@@ -98,7 +98,7 @@ CONFIGURANDO BROWSER-SYNC / NPM-RUN-ALL : [
 
 
 
-CONFIGURANDO FILE SYSTEM [
+CONFIGURANDO FILE SYSTEM : [
 
     PARA QUE SERVE O FILE SYSTEM: {
         O file system é um modo de armazenamento de arquivos que consiste em armazenar os dados em um arquivo local, ou seja, dentro da sua máquina.
@@ -129,3 +129,18 @@ CONFIGURANDO FILE SYSTEM [
 ]    
 
 
+
+DEPENDENCIA METHOD_OVERRIDE : [
+    Está dependencia faz com que os metodos de tipo PUT e DELETE sejam implementados no formulário.
+
+    Configurando METHOD_OVERRIDE no server : {
+
+        // aqui estamos introduzindo o METHOD_OVERRIDE em nosso server
+        const methoOverride = require("method-override")
+
+        // configurando o server para usar o METHOD_OVERRIDE
+        server.use(methoOverride("_method"))
+
+        *** Esse midware deve ficar acima do midware de rotas, para que ele sobrescreva.
+    }
+]
