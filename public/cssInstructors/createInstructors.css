@@ -1,6 +1,6 @@
 /* ===================== FORM ===================== */
 
-form.card {
+.card {
     width: 80vw;
     height: 80vh;
 
@@ -16,7 +16,7 @@ form.card {
     grid-template-columns: 1fr 2fr;
 }
 
-form.card section.avatar {
+.card section.avatar {
     background-image: url(https://images.unsplash.com/photo-1578762560042-46ad127c95ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
     background-position: center;
     background-size: cover;
@@ -43,8 +43,8 @@ form.card section.avatar {
     }
 }
 
-form.card section.details {
-    padding: 4rem 5rem;
+.card section.details {
+    padding: 3rem 5rem;
     
     position: relative;
 
@@ -52,13 +52,13 @@ form.card section.details {
     grid-template-rows: 1fr 10fr;
 }
 
-form.card section.details h1 {
-    font-size: 3.6rem;
+.card section.details h1 {
+    font-size: 3.0rem;
     font-weight: normal;
 
 }
 
-form.card section.details h1::after {
+.card section.details h1::after {
     content: "";
 
     position: absolute;
@@ -70,7 +70,7 @@ form.card section.details h1::after {
 
     background-color: black;
 
-    top: 9rem;
+    top: 7.2rem;
     left: 5rem;
 
     animation: width 1s;
@@ -88,18 +88,18 @@ form.card section.details h1::after {
     }
 }
 
-form.card section.details h1::before {
+.card section.details h1::before {
     content: "";
 
     position: absolute;
 
-    height: 6%;
+    height: 0.5%;
     width: 2px;
 
     background-color: black;
 
-    top: 4rem;
-    left: 4rem;
+    top: 3.5rem;
+    left: 4.2rem;
 
     animation: height 1s;
 
@@ -116,19 +116,19 @@ form.card section.details h1::before {
     }
 }
 
-form.card section.details div.informations {
+.card section.details div.informations {
 
     align-self: flex-start;
 
 }
 
-form.card section.details div.information {
+.card section.details div.information {
     padding: 1rem;
 
     border-bottom: 1px solid rgba(58, 56, 56, 0.170);
 }
 
-form.card section.details div.information div:first-child {
+.card section.details div.information div:first-child {
     font-size: 1.5rem;
     font-weight: 400;
 
@@ -148,7 +148,7 @@ input::placeholder {
     font-weight: 400;
 }
 
-form.card section.details div.information input {
+.card section.details div.information input {
     font-size: 1.6rem;
     font-weight: 700;
 
@@ -160,7 +160,7 @@ form.card section.details div.information input {
     background-color: rgba(144, 144, 144, 0.363);
 }
 
-form.card section.details div.information span {
+.card section.details div.information span {
     background-color: rgb(255, 255, 0);
 
     display: inline-block;
@@ -199,8 +199,8 @@ button {
     background-color: rgb(255, 255, 0);
     color: rgb(90, 90, 90);
 
-    padding: 1rem;
-    margin-top: 2.5rem;
+    padding: 0.5rem;
+    margin-top: 1.4rem;
 
     width: 100%;
 
@@ -209,6 +209,12 @@ button {
     transition: background-color 400ms ease-in-out;
 }
 
-button:hover {
+button.save:hover {
     background-color: rgb(226, 226, 0);
+}
+
+button.delete:hover {
+    background-color: rgb(200, 0, 0);
+    color: white;
+
 }

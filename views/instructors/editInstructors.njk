@@ -7,18 +7,26 @@
 
 {% block content %}
 
-  <form class="card" method="POST" action="/instructors?_method=PUT">
-    <!--atraves de uma query estamos passando o metodo PUT para o formulário-->
+  <div class="card">
     <section class="avatar" style="background-image: url({{ instructor.avatar_url }});"></section>
+
     <section class="details">
-      <h1>Editar Instrutor</h1>
+      <form method="POST" action="/instructors?_method=PUT">
+        <!--atraves de uma query estamos passando o metodo PUT para o formulário-->
+        <h1>Editar Instrutor</h1>
 
-      {% include "instructors/fields.njk" %}
+        {% include "instructors/fields.njk" %}
 
-      <button type="submit">Salvar</button>
+        <button class="save" type="submit">Salvar</button>
 
-      <input type="hidden" name="id" value="{{instructor.id}}">
+        <input type="hidden" name="id" value="{{instructor.id}}">
+      </form>
+
+      <form method="POST" action="/instructors?_method=DELETE">
+        <input type="hidden" name="id" value="{{instructor.id}}">
+        <button class="delete" type="submit">Deletar</button>
+      </form>
     </section>
-  </form>
+  </div>
 
 {% endblock content %}

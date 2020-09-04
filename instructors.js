@@ -154,3 +154,25 @@ exports.put = function (req, res) {
     return res.redirect(`/instructors/${id}`)
   })
 }
+
+exports.delete = function (req, res) {
+  // pegando id pelo formulário
+  const { id } = req.body
+
+  // dentro do array instructors, filtramos um instrutor. Se for true adicionamos ele no nosso novo array filteredInstructors
+  const filteredInstructors = data.instructors.filter(function (instructor) {
+
+    // se o instructor tiver o id diferente do id informado no body, iremos enviar ele para dentro do filteredInstructors (esse é o array de objetos que sera deletado)
+    return instructor.id != id
+  })
+
+  data.instructors = filteredInstructors
+
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), function (err) {
+    if (err) {
+      return res.send("Write file error")
+    }
+
+    return res.redirect('/instructors')
+  })
+}
