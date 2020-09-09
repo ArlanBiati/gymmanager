@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/cssMembers/createMembers.css">
+    <title>Novo Membro - Gyn Manager</title>
+{% endblock head %}
+
+{% block content %}
+
+    <form class="card" method="POST" action="/members">
+        <section class="avatar"></section>
+        <section class="details">
+            <h1>Novo Membro</h1>
+
+            {% include "members/fields.njk" %}
+
+            <button type="submit">Salvar</button>
+
+        </section>
+    </form>
+
+{% endblock content %}

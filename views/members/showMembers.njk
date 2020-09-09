@@ -1,0 +1,59 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/cssMembers/detailMembers.css">
+  <title>Detalhes do Membro - Gyn Manager</title>
+{% endblock head %}
+
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background-image: url({{ member.avatar_url }});"></section>
+    <section class="details">
+      <h1>Detalhes</h1>
+
+      <div class="informations">
+
+        <div class="information">
+          <div>Membro</div>
+          <div>{{ member.name }}</div>
+        </div>
+
+        <div class="information">
+          <div>Email</div>
+          <div>{{ member.email }}</div>
+        </div>
+
+        <div class="information">
+          <div>Aniversário</div>
+          <div>{{ member.birth }}</div>
+        </div>
+
+        <div class="information">
+          <div>Sexo</div>
+          <div>{{ "Masculino" if member.gender == "M" else "Feminino" }}</div>
+        </div>
+
+        <div class="information">
+          <div>Tipo Sanguíneo</div>
+          <div>{{ member.blood }}</div>
+        </div>
+
+        <div class="structure">
+          <div class="information">
+            <div>Peso (Kg)</div>
+            <div>{{ member.weigth }}</div>
+          </div>
+
+          <div class="information">
+            <div>Altura (cm)</div>
+            <div>{{ member.height }}</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/members/{{ member.id }}/edit" class="button">Editar</a>
+    </section>
+  </div>
+
+{% endblock content %}

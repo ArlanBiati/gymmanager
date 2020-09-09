@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <link rel="stylesheet" href="/cssMembers/editMembers.css">
+  <title>Editar Membro - Gyn Manager</title>
+{% endblock head %}
+
+{% block content %}
+
+  <div class="card">
+    <section class="avatar" style="background-image: url({{ member.avatar_url }});"></section>
+
+    <section class="details">
+      <form method="POST" action="/members?_method=PUT">
+        <!--atraves de uma query estamos passando o metodo PUT para o formulário-->
+        <h1>Editar Instrutor</h1>
+
+        {% include "members/fields.njk" %}
+
+        <button class="save" type="submit">Salvar</button>
+
+        <input type="hidden" name="id" value="{{member.id}}">
+      </form>
+
+      <form method="POST" action="/members?_method=DELETE">
+        <input type="hidden" name="id" value="{{member.id}}">
+        <button class="delete" type="submit">Deletar</button>
+      </form>
+    </section>
+  </div>
+
+{% endblock content %}

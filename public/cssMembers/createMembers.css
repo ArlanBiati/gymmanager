@@ -2,11 +2,11 @@
 
 .card {
     width: 80vw;
-    height: 80vh;
+    height: 90vh;
 
     max-width: 1100px;
 
-    margin: 5rem auto 0;
+    margin: 2rem auto;
 
     background-color: rgba(255, 255, 255, 0.9);
 
@@ -25,7 +25,7 @@
     border: 5px solid yellow;
 
     width: 30vw;
-    height: 80vh;
+    height: 90vh;
 
     max-width: 500px;
     
@@ -47,9 +47,6 @@
     padding: 3rem 5rem;
     
     position: relative;
-
-    display: grid;
-    grid-template-rows: 1fr 10fr;
 }
 
 .card section.details h1 {
@@ -93,7 +90,7 @@
 
     position: absolute;
 
-    height: 4.5%;
+    height: 3.5%;
     width: 2px;
 
     background-color: black;
@@ -117,9 +114,7 @@
 }
 
 .card section.details div.informations {
-
-    align-self: flex-start;
-
+    margin-top: 2rem;
 }
 
 .card section.details div.information {
@@ -153,7 +148,7 @@ input::placeholder {
     font-weight: 700;
 
     padding: 1.0rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 
     border-radius: 0.8rem;
 
@@ -217,4 +212,9 @@ button.delete:hover {
     background-color: rgb(200, 0, 0);
     color: white;
 
+}
+
+.structure {
+    display: flex;
+    justify-content: center;
 }

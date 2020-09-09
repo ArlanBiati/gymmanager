@@ -1,0 +1,84 @@
+<div class="informations">
+
+  <div class="information">
+    <div>Avatar URL</div>
+    <input type="url" name="avatar_url" placeholder="http://" value="{{ member.avatar_url }}" required="required">
+  </div>
+
+  <div class="information">
+    <div>Membro</div>
+    <input type="text" name="name" placeholder="Nome do membro" value="{{ member.name }}" required="required">
+  </div>
+
+  <div class="information">
+    <div>Email</div>
+    <input type="email" name="email" placeholder="Email" value="{{ member.email }}" required="required">
+  </div>
+
+  <div class="information">
+    <div>Data de nascimento</div>
+    <input type="date" name="birth" value="{{ member.birth }}" required="required">
+  </div>
+
+  <div class="information">
+    <div>Tipo Sanguíneo</div>
+    <select name="blood">
+      <option value="A1" {% if member.blood == "A+" %} selected="selected" {% endif %}>
+        A+
+      </option>
+
+      <option value="A0" {% if member.blood == "A-" %} selected="selected" {% endif %}>
+        A-
+      </option>
+
+      <option value="B1" {% if member.blood == "B+" %} selected="selected" {% endif %}>
+        B+
+      </option>
+
+      <option value="B0" {% if member.blood == "B-" %} selected="selected" {% endif %}>
+        B-
+      </option>
+
+      <option value="O1" {% if member.blood == "O+" %} selected="selected" {% endif %}>
+        O+
+      </option>
+
+      <option value="O0" {% if member.blood == "O-" %} selected="selected" {% endif %}>
+        O-
+      </option>
+
+      <option value="AB1" {% if member.blood == "AB+" %} selected="selected" {% endif %}>
+        AB+
+      </option>
+
+      <option value="AB0" {% if member.blood == "AB-" %} selected="selected" {% endif %}>
+        AB-
+      </option>
+    </select>
+  </div>
+
+  <div class="information">
+    <div>Sexo</div>
+    <span>
+      <input type="radio" name="gender" value="M" {% if member.gender == "M" %} checked="checked" {% endif %} required="required">
+      Masculino
+    </span>
+    <span>
+      <input type="radio" name="gender" value="M" {% if member.gender == "F" %} checked="checked" {% endif %} required="required">
+      Feminino
+    </span>
+  </div>
+
+  <div class="structure">
+    <div class="information">
+      <div>Peso (Kg)</div>
+      <input type="number" name="weigth" value="{{ member.weigth }}" required="required">
+    </div>
+
+    <div class="information">
+      <div>Altura (cm)</div>
+      <input type="number" name="height" value="{{ member.height }}" required="required">
+    </div>
+  </div>
+
+</div>
