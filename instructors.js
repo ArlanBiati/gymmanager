@@ -3,6 +3,9 @@ const data = require('./data.json')
 const Intl = require('intl')
 const { age, date } = require('./utils')
 
+exports.index = function (req, res) {
+  return res.render('instructors/instructors', { instructors: data.instructors })
+}
 
 exports.show = function (req, res) {
   // estamos desestruturando o id de dentro da requisição do tipo params
