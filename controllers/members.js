@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require('../data.json')
-const { age, date } = require('../utils')
+const { date } = require('../utils')
 
 exports.index = function (req, res) {
   return res.render('members/members', { members: data.members })
@@ -25,7 +25,7 @@ exports.show = function (req, res) {
   const member = {
     ...foundMember, // spred operator (resto dos dados inalterados)
 
-    age: age(foundMember.birth), // transformando a idade de milisegundos para anos e validando o mes e dia de aniversario
+    birth: date(foundMember.birth).birthDay // transformando a idade de milisegundos para anos e validando o mes e dia de aniversario
   }
 
   // se tudo estiver correto, retorne a pagina showMembers apresentando os dados do instrutor correspondente
@@ -58,7 +58,7 @@ exports.edit = function (req, res) {
     ...foundMember,
 
     // transformando a data de aniversário de milisegundos para o formato yyyy-mm-dd
-    birth: date(foundMember.birth)
+    birth: date(foundMember.birth).iso
   }
 
   return res.render("members/editMembers", { member })

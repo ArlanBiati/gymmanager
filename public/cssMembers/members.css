@@ -50,6 +50,7 @@ th {
 
 td {
   font-size: 1.4rem;
+  font-weight: bold;
 }
 
 tbody tr:last-child td {

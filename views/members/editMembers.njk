@@ -13,7 +13,7 @@
     <section class="details">
       <form method="POST" action="/members?_method=PUT">
         <!--atraves de uma query estamos passando o metodo PUT para o formulário-->
-        <h1>Editar Instrutor</h1>
+        <h1>Editar Membro</h1>
 
         {% include "members/fields.njk" %}
 
@@ -22,10 +22,20 @@
         <input type="hidden" name="id" value="{{member.id}}">
       </form>
 
-      <form method="POST" action="/members?_method=DELETE">
+      <form id="form-delete" method="POST" action="/members?_method=DELETE">
         <input type="hidden" name="id" value="{{member.id}}">
         <button class="delete" type="submit">Deletar</button>
       </form>
+
+      <script>
+        const formDelete = document.querySelector('#form-delete')
+        formDelete.addEventListener("submit", function (event) {
+          const confirmation = confirm("Deseja deletar ?")
+          if (!confirmation) {
+            event.preventDefault()
+          }
+        })
+      </script>
     </section>
   </div>
 

@@ -32,6 +32,9 @@ module.exports = {
     const day = `0${date.getUTCDate()}`.slice(-2)
 
     // retornamos os dados em forma de string na ordem yyyy-mm-dd
-    return `${year}-${month}-${day}`
+    return {
+      iso: `${year}-${month}-${day}`,
+      birthDay: `${day}/${month}`
+    }
   }
 }

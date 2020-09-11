@@ -22,10 +22,21 @@
         <input type="hidden" name="id" value="{{instructor.id}}">
       </form>
 
-      <form method="POST" action="/instructors?_method=DELETE">
+      <form id="form-delete" method="POST" action="/instructors?_method=DELETE">
         <input type="hidden" name="id" value="{{instructor.id}}">
         <button class="delete" type="submit">Deletar</button>
       </form>
+
+      <script>
+        const formDelete = document.querySelector('#form-delete')
+        formDelete.addEventListener("submit", function (event) {
+          const confirmation = confirm("Deseja deletar ?")
+          if (!confirmation) {
+            event.preventDefault()
+          }
+        })
+      </script>
+
     </section>
   </div>
 

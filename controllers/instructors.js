@@ -65,7 +65,7 @@ exports.edit = function (req, res) {
     ...foundInstructor,
 
     // transformando a data de aniversário de milisegundos para o formato yyyy-mm-dd
-    birth: date(foundInstructor.birth)
+    birth: date(foundInstructor.birth).iso
   }
 
   return res.render("instructors/editInstructors", { instructor })
