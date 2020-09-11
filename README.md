@@ -7,7 +7,7 @@
 <p>&nbsp;&nbsp;</p>
 
 <center> 
-	<img src="https://user-images.githubusercontent.com/43690080/91585677-c0c11900-e92a-11ea-84e3-156a47f0d2ad.png" />
+	<img src="https://user-images.githubusercontent.com/43690080/92944116-f6d1c300-f429-11ea-9d37-227ad2f1bd49.gif" />
 </center>
 
 <p>&nbsp;&nbsp;</p>
@@ -54,8 +54,16 @@ Aplicação para gerenciar academia.
 Features:
 
 - Cadastro de instrutores
-- Edição
+- Edição de instrutores
+- Exclusão de instrutores
+- Listagem de instrutores
+
+<p>&nbsp;&nbsp;</p>
+
 - Cadastro de membros
+- Edição de membros
+- Exclusão de membros
+- Listagem de membros
 
 <p>&nbsp;&nbsp;</p>
 
