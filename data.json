@@ -1,26 +1,14 @@
 {
   "instructors": [
     {
-      "id": 2,
-      "avatar_url": "http://github.com/maykbrito.png",
-      "name": "Mayk Brito",
-      "birth": 641779200000,
-      "gender": "M",
-      "services": "CrossFit",
-      "created_at": 1599231701613
-    }
-  ],
-  "members": [
-    {
       "id": 1,
       "avatar_url": "http://github.com/ArlanBiati.png",
       "name": "Arlan Biati",
-      "email": "arlangustavo@hotmail.com",
       "birth": 795139200000,
-      "blood": "O+",
       "gender": "M",
-      "weigth": "71",
-      "height": "170"
+      "services": "CrossFit, Funcional, Musculação",
+      "created_at": 1599837428917
     }
-  ]
+  ],
+  "members": []
 }
