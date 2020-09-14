@@ -1,5 +1,5 @@
 module.exports = {
-  age: function (timestamp) {
+  age(timestamp) {
     // const today recebe a data de hoje
     const today = new Date()
 
@@ -18,7 +18,7 @@ module.exports = {
     }
     return age
   },
-  date: function (timestamp) {
+  date(timestamp) {
     // const date recebe a data de acordo com o timestamp
     const date = new Date(timestamp)
 
