@@ -61,8 +61,8 @@ INICIANDO O BACK END : [
 
     }
 
-*** Como o JS é uma linguagem assíncrona, o código não é lido da maneira em que foi escrito. Por isso existem as Callbacks Functions, que nada mais é funções que seram executadas após um certo evento. 
-    Exemplo: Ao rodar uma API que trara dados externos para dentro da aplicação, se não houvesse callback functions, o js continuaria lendo o código sem ao menos esperar essas dados serem recebidos e isso ocasionaria vários erros !
+    *** Como o JS é uma linguagem assíncrona, o código não é lido da maneira em que foi escrito. Por isso existem as Callbacks Functions, que nada mais é funções que seram executadas após um certo evento. 
+        Exemplo: Ao rodar uma API que trara dados externos para dentro da aplicação, se não houvesse callback functions, o js continuaria lendo o código sem ao menos esperar essas dados serem recebidos e isso ocasionaria vários erros !
 ]
 
 
@@ -142,5 +142,30 @@ DEPENDENCIA METHOD_OVERRIDE : [
         server.use(methoOverride("_method"))
 
         *** Esse midware deve ficar acima do midware de rotas, para que ele sobrescreva.
+    }
+]
+
+
+
+INICIANDO COM BANCO DE DADOS SQL : [
+    Para iniciarmos a conexão com o Postgres devemos instalar uma dependência chamada PG.
+
+    Após isso criamos uma pasta com o nome de CONFIG, nela criaremos um arquivo com o nome de DB.JS que ira receber toda a parte de configuração do nosso banco de dados.
+
+    Configurando conexão com o banco de dados através do PG : {
+
+        // dentro do PG estamos fazendo uma desestruturação e pegando apenas o mobjeto Pool.
+        // pool serve para que não precisemos enviar login / senha todas as vezes que formos fazer uma query
+        const { Pool } = require("pg")
+
+
+        // aqui exportamos uma pool que contem os dados que precisamos para fazer a conexão com o banco de dados.
+        module.exports = new Pool({
+        user: "postgres",
+        password: "postgres",
+        host: "172.17.0.2",
+        port: "5432",
+        database: "gymmanager"
+        })
     }
 ]
