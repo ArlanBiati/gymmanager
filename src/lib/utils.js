@@ -34,7 +34,8 @@ module.exports = {
     // retornamos os dados em forma de string na ordem yyyy-mm-dd
     return {
       iso: `${year}-${month}-${day}`,
-      birthDay: `${day}/${month}`
+      birthDay: `${day}/${month}`,
+      format: `${day}/${month}/${year}`
     }
   }
 }
