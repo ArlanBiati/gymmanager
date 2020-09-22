@@ -1,13 +1,19 @@
-const Intl = require('intl')
-const { age, date } = require('../../lib/utils')
+const Member = require('../../models/Member')
+const { date } = require('../../lib/utils')
+
 
 module.exports = {
   index(req, res) {
-    return res.render('members/members')
+    // estamos pegando o arquivo Member e chamando todos os instrutores que estiverem cadastrados no BD
+    Member.all(function (members) {
+      return res.render('members/members', { members })
+    })
   },
+
   create(req, res) {
     return res.render('members/createMembers')
   },
+
   post(req, res) {
     // criamos um Constructor (Object) que criara um objeto e dentro dele contem todos os dados enviados no body (avatar, nome, nascimento, servicos, sexo)
     const keys = Object.keys(req.body)
@@ -18,14 +24,40 @@ module.exports = {
         return res.send('Por favor, preencha todos os campos')
       }
     }
-    return
+
+    // estamos pegando o arquivo Member e passando a funcionalidade de crear um instrutor no BD.
+    // create passa os dados do body e a função de cadastro
+    Member.create(req.body, function (member) {
+
+      // se der certo o envio de dados para o banco, redirecionamos o usuário para a página do instrutor cadastrado
+      return res.redirect(`/members/${member.id}`)
+    })
   },
+
   show(req, res) {
-    return
+    Member.find(req.params.id, function (member) {
+      if (!member) {
+        return res.send("Instrutor não encontrado!")
+      }
+
+      member.birth = date(member.birth).birthDay
+
+      return res.render('members/showMembers', { member })
+    })
   },
+
   edit(req, res) {
-    return
+    Member.find(req.params.id, function (member) {
+      if (!member) {
+        return res.send("Instrutor não encontrado!")
+      }
+
+      member.birth = date(member.birth).iso
+
+      return res.render('members/editMembers', { member })
+    })
   },
+
   put(req, res) {
     // criamos um Constructor (Object) que criara um objeto e dentro dele contem todos os dados enviados no body (avatar, nome, nascimento, servicos, sexo)
     const keys = Object.keys(req.body)
@@ -36,9 +68,15 @@ module.exports = {
         return res.send('Por favor, preencha todos os campos')
       }
     }
-    return
+
+    Member.update(req.body, function () {
+      return res.redirect(`/members/${req.body.id}`)
+    })
   },
+
   delete(req, res) {
-    return
+    Member.delete(req.body.id, function () {
+      return res.redirect(`/members`)
+    })
   }
 }
