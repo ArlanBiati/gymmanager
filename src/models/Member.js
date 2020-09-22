@@ -75,7 +75,7 @@ module.exports = {
       UPDATE members SET
         avatar_url=($1),
         name=($2),
-        email=($3)
+        email=($3),
         birth=($4),
         blood=($5),
         gender=($6),
