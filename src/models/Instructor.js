@@ -5,14 +5,20 @@ module.exports = {
   all(callback) {
 
     // estamos selecionando todos os campos dentro de instructors no BD
-    db.query(`SELECT * FROM instructors ORDER BY name ASC`, function (err, results) {
+    db.query(`
+      SELECT instructors.*, count(members) AS total_students
+      FROM instructors
+      LEFT JOIN members ON (instructors.id = members.instructor_id)
+      GROUP BY instructors.id
+      ORDER BY total_students DESC`
+      , function (err, results) {
 
-      // se der erro retornamos uma mensagem "Database error"
-      if (err) throw `Database error! ${err}`
+        // se der erro retornamos uma mensagem "Database error"
+        if (err) throw `Database error! ${err}`
 
-      // se ocorrer com exito nossa função, retornamo na callback o array contendo os instrutores.
-      callback(results.rows)
-    })
+        // se ocorrer com exito nossa função, retornamo na callback o array contendo os instrutores.
+        callback(results.rows)
+      })
   },
   create(data, callback) {
 
