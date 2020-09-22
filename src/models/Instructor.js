@@ -5,7 +5,7 @@ module.exports = {
   all(callback) {
 
     // estamos selecionando todos os campos dentro de instructors no BD
-    db.query(`SELECT * FROM instructors`, function (err, results) {
+    db.query(`SELECT * FROM instructors ORDER BY name ASC`, function (err, results) {
 
       // se der erro retornamos uma mensagem "Database error"
       if (err) throw `Database error! ${err}`
