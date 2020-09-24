@@ -4,10 +4,21 @@ const { date } = require('../../lib/utils')
 
 module.exports = {
   index(req, res) {
-    // estamos pegando o arquivo Member e chamando todos os instrutores que estiverem cadastrados no BD
-    Member.all(function (members) {
-      return res.render('members/members', { members })
-    })
+    const { filter } = req.query
+
+    if (filter) {
+
+      Member.findBy(filter, function (members) {
+        return res.render('members/members', { members, filter })
+      })
+
+    } else {
+
+      // estamos pegando o arquivo Member e chamando todos os instrutores que estiverem cadastrados no BD
+      Member.all(function (members) {
+        return res.render('members/members', { members })
+      })
+    }
   },
 
   create(req, res) {

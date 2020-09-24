@@ -8,7 +8,13 @@
 {% block content %}
 
     <div class="card table-container">
-        <a href="/members/create">Novo</a>
+        <div class="header">
+            <a href="/members/create">Novo</a>
+            <form action="/members" method="GET">
+                <input type="text" name="filter" placeholder="Buscar por Nome" value="{{ filter }}">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
         <table width="100%">
             {# thead - cabeçalho #}
             <thead>

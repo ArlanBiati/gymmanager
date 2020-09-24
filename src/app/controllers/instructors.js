@@ -4,11 +4,21 @@ const { age, date } = require('../../lib/utils')
 
 module.exports = {
   index(req, res) {
+    const { filter } = req.query
 
-    // estamos pegando o arquivo Instructor e chamando todos os instrutores que estiverem cadastrados no BD
-    Instructor.all(function (instructors) {
-      return res.render('instructors/instructors', { instructors })
-    })
+    if (filter) {
+
+      Instructor.findBy(filter, function (instructors) {
+        return res.render('instructors/instructors', { instructors, filter })
+      })
+
+    } else {
+
+      // estamos pegando o arquivo Instructor e chamando todos os instrutores que estiverem cadastrados no BD
+      Instructor.all(function (instructors) {
+        return res.render('instructors/instructors', { instructors })
+      })
+    }
   },
 
   create(req, res) {

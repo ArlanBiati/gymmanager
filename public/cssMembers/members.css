@@ -76,8 +76,7 @@ tbody tr td:first-child span {
   background-size: cover;
 }
 
-tbody tr td:last-child a,
-.table-container > a {
+tbody tr td:last-child a {
   background-color: rgb(255, 255, 0);
 
   padding: 1rem 2rem;
@@ -98,19 +97,51 @@ tbody tr td:last-child a:hover {
 
 }
 
-.table-container > a {
-  margin-bottom: 1.6rem;
-
-  font-size: 1.4rem;
-
-  display: inline-block;
-}
-
-.table-container > a:hover {
-  background-color: rgb(226, 226, 0);
-}
-
 .table-container thead tr th:last-child,
 td:last-child {
   text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+}
+
+.header button {
+  border: none;
+  background: none;
+}
+
+.header button,
+.header a {
+  padding: 1rem 3em;
+
+  background-color: rgb(255, 255, 0);
+
+  border-radius: 1rem;
+
+  color: #777;
+
+  cursor: pointer;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  transition: all 300ms ease-in-out;
+}
+
+.header button:hover,
+.header a:hover {
+  background-color:  rgb(226, 226, 0);
+}
+
+.header input {
+  padding: 1rem;
+
+  border: 1px solid #777;
+  border-radius: 1rem;
+
+  background: none;
 }

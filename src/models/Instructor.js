@@ -70,6 +70,24 @@ module.exports = {
       callback(results.rows[0])
     })
   },
+  findBy(filter, callback) {
+    db.query(`
+      SELECT instructors.*, count(members) AS total_students
+      FROM instructors
+      LEFT JOIN members ON (instructors.id = members.instructor_id)
+      WHERE instructors.name ILIKE '%${filter}%'
+      OR instructors.services ILIKE '%${filter}%'
+      GROUP BY instructors.id
+      ORDER BY total_students DESC`
+      , function (err, results) {
+
+        // se der erro retornamos uma mensagem "Database error"
+        if (err) throw `Database error! ${err}`
+
+        // se ocorrer com exito nossa função, retornamo na callback o array contendo os instrutores.
+        callback(results.rows)
+      })
+  },
   update(data, callback) {
 
     // estamos usando o UPDATE para fazer a atualização dos dados no BD
