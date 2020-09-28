@@ -7,7 +7,7 @@
 <p>&nbsp;&nbsp;</p>
 
 <center> 
-	<img src="https://user-images.githubusercontent.com/43690080/92944116-f6d1c300-f429-11ea-9d37-227ad2f1bd49.gif" />
+	<img src="https://user-images.githubusercontent.com/43690080/94485991-26682580-01b5-11eb-94c9-b22cd144d04c.gif" />
 </center>
 
 <p>&nbsp;&nbsp;</p>
@@ -22,14 +22,14 @@
 <p>&nbsp;&nbsp;</p>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ArlanBiati/foodfy">	
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ArlanBiati/gymmanager">	
 	
   <a href="https://www.linkedin.com/in/arlan-biati/">
     <img alt="Made by ArlanBiati" src="https://img.shields.io/badge/made%20by-ArlanBiati-%2304D361">
   </a>
   
-  <a href="https://github.com/ArlanBiati/foodfy/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ArlanBiati/foodfy">
+  <a href="https://github.com/ArlanBiati/gymmanager/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ArlanBiati/gymmanager">
   </a>
   
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen"> 
@@ -67,6 +67,10 @@ Features:
 
 <p>&nbsp;&nbsp;</p>
 
+- Paginação
+
+<p>&nbsp;&nbsp;</p>
+
 ---
 
 <p>&nbsp;&nbsp;</p>
@@ -78,6 +82,7 @@ O projeto foi desenvolvido usando as seguintes tecnologias
 - [Node.js](https://nodejs.org/en/)
 - [Expo](https://expo.io/)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
+- [PostgreSQL](https://www.postgresql.org)
 
 <p>&nbsp;&nbsp;</p>
 
