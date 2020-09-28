@@ -144,5 +144,52 @@ module.exports = {
 
       callback(results.rows)
     })
+  },
+  paginate(params) {
+    const { filter, limit, offset, callback } = params
+
+    let query = ""
+    let filterQuery = ""
+    let totalQuery = `
+      (SELECT count(*) FROM members)
+      AS total
+    `
+
+    // se houver um filtro, a query recebera o valor dela não modificado + os possiveis filtros
+    // WHERE: onde devemos pesquisar. Estamos pesquisando dentro da tabela de instrutores a coluna de nome
+    // OR: ou devemos pesquisar tambem dentro da tabela de instrutores a coluna de serviços
+    // ILIKE: é tipo de filtro que estamos autorizando ele identificar. Neste caso aceita qualquer formato de palavra sem destinção de caixa alta ou baixa
+    if (filter) {
+      filterQuery = `
+        ${query}
+        WHERE members.name ILIKE '%${filter}%'
+        OR members.email ILIKE '%${filter}%'
+      `
+
+      totalQuery = `(
+        SELECT count(*) FROM members
+        ${filterQuery}
+      ) AS total`
+    }
+
+    // variavel query esta recebendo:
+    // SELECT: seleciones todos os instrutores e identifique quantos membros cada instrutor tem (total_students)
+    // (aqui utilizamos uma subquery para identificar a quantidade de instrutores e colocar dentro do total)
+    // FROM: pegue todos os dados da tabela de instrutores
+    // LEFT JOIN: integre a tabela de instrutores com a de mebros (members.instructor_id recebe instructors.id) (linkando informações de uma tabela para outra)
+    query = `
+      SELECT members.*, ${totalQuery}
+      FROM members
+      ${filterQuery}
+      LIMIT $1
+      OFFSET $2
+    `
+
+    db.query(query, [limit, offset], function (err, results) {
+      if (err) throw `Database error! ${err}`
+
+      // se ocorrer com exito nossa função, retornamo na callback o array contendo os instrutores.
+      callback(results.rows)
+    })
   }
 }

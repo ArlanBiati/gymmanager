@@ -144,3 +144,37 @@ td:last-child {
 
   background: none;
 }
+
+/* pagiantion */
+
+.table-container {
+  display: grid;
+  grid-template-rows: 72px 1fr 16px;
+}
+
+.table-container .header {
+  margin: 0;
+  align-self: flex-start;
+}
+
+.table-container .pagination {
+  margin: 0;
+  align-self: flex-end;
+  justify-self: center;
+}
+
+.pagination a,
+.pagination span {
+  color:  #777;
+
+  margin-right: 8px;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pagination a:hover {
+  filter: brightness(0.3);
+
+  border-bottom: 1px solid #777;
+}

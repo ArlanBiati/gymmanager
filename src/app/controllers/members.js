@@ -4,21 +4,36 @@ const { date } = require('../../lib/utils')
 
 module.exports = {
   index(req, res) {
-    const { filter } = req.query
+    let { filter, page, limit } = req.query
 
-    if (filter) {
+    // se não existir a PAGE ele coloca com 1, caso contrário coloca o numero da pagina
+    page = page || 1
 
-      Member.findBy(filter, function (members) {
-        return res.render('members/members', { members, filter })
-      })
+    // funciona da mesma forma que o PAGE, se tiver mais que 5 dados na pagina ele ira criar uma seguinte e preencher, caso contrário ele apresenta apenas uma página com os dados disponiveis
+    limit = limit || 5
 
-    } else {
+    // a variavel offset vai apresentar os dados na página com a seguinte condição
+    // 1-1 = 0 -> 0*5 = 0 --- mostra os dados apartir do id 0
+    // 2-1 = 1 -> 1*5 = 5 --- mostra os dados apartir do id 5
+    // 3-1 = 2 -> 2*5 = 10 --- mostra os dados apartir do id 10
+    // desta maneira os dados sempre seram sequentes e nunca repetiram na apresentação
+    let offset = limit * (page - 1)
 
-      // estamos pegando o arquivo Member e chamando todos os instrutores que estiverem cadastrados no BD
-      Member.all(function (members) {
-        return res.render('members/members', { members })
-      })
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(members) {
+        const pagination = {
+          total: Math.ceil(members[0].total / limit),
+          page
+        }
+        return res.render('members/members', { members, pagination, filter })
+      }
     }
+
+    Member.paginate(params)
   },
 
   create(req, res) {
